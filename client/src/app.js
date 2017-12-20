@@ -16,8 +16,8 @@ const app = function () {
     countriesSelect.render(countries);
   });
 
-  countriesSelect.select.addEventListener('change', function (event) {
-    const selectedIndex = parseInt(event.target.value);
+  countriesSelect.select.addEventListener('change', function () {
+    const selectedIndex = this.value;
     const selectedCountry = countriesList.countries[selectedIndex];
     countryInfo.render(selectedCountry);
   });
