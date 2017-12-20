@@ -7,12 +7,7 @@ Ajax.prototype.get = function (onComplete) {
   request.open('GET', this.url);
   request.send();
 
-  request.addEventListener('load', function () {
-    if (this.status !== 200) return;
-    const jsonString = this.responseText;
-    const data = JSON.parse(jsonString);
-    onComplete(data);
-  });
+  request.addEventListener('load', onComplete);
 }
 
 module.exports = Ajax;

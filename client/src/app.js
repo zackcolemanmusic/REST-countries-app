@@ -11,7 +11,11 @@ const app = function () {
   const url = 'https://restcountries.eu/rest/v2/all';
   const ajax = new Ajax(url);
 
-  ajax.get(function (countries) {
+  ajax.get(function () {
+    if (this.status !== 200) return;
+    const jsonString = this.responseText;
+    const countries = JSON.parse(jsonString);
+    
     countriesList.setCountries(countries);
     countriesSelect.render(countries);
   });
