@@ -3,7 +3,12 @@ const CountryInfo = function () {
 }
 
 CountryInfo.prototype.render = function (country) {
-  // TODO: Render country info
+  const ul = document.querySelector('#populate');
+  const li = document.createElement('li');
+  const text = document.createElement('p');
+  text.innerText = `${country.name}`;
+  li.appendChild(text);
+  ul.appendChild(li);
 }
 
 CountryInfo.prototype.createListItem = function (label, content) {
